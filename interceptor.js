@@ -3,7 +3,7 @@ import axios from "axios"
 const httpAuthorizationErrorCode = 401
 const httpForbiddenErrorCode = 403
 
-const axiosIntercetor = () => {
+const axiosInterceptor = () => {
   const requestSuccess = config => {
     if (isAuthenticated) {
       config.headers["Content-Type"] = "application/json; charset=UTF-8"
@@ -34,4 +34,4 @@ const axiosIntercetor = () => {
   axios.interceptors.response.use(responseSuccess, responseError)
 }
 
-export default axiosIntercetor
+export default axiosInterceptor
